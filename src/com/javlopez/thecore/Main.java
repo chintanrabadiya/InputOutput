@@ -9,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         //doTryCatchFinally();
         //doTryWithResources();
-        doTryWithResourcesMulti();
+        //doTryWithResourcesMulti();
+        doCloseThing();
     }
 
     public static void doTryCatchFinally() {
@@ -75,6 +76,10 @@ public class Main {
             ac.saySomething();
         }catch (IOException e) {
             System.out.println(e.getClass().getSimpleName() + " - " + e.getMessage());
+            System.out.println("=============");
+            for(Throwable t:e.getSuppressed()){
+                System.out.println("Exception supressed: " +  t.getMessage());
+            }
         }
     }
 }
